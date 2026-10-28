@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraSeg VI Región | Seguridad Inteligente & Televigilancia Residencial y Parcelas</title>
+    <meta name="description" content="Venta, instalación y televigilancia inteligente para hogares, condominios y parcelas en Machalí, Rancagua, Requínoa y la VI Región de O'Higgins. Equipos 100% propios sin contratos abusivos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#070D1B',
+                            dark: '#0D172A',
+                            surface: '#152238',
+                            surfaceLight: '#1E2F4D',
+                            cyan: '#00F2FE',
+                            teal: '#00C6FF',
+                            accent: '#10B981',
+                            amber: '#F59E0B',
+                            danger: '#EF4444'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(0, 242, 254, 0.4);
+        }
+        .glow-accent {
+            box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.4);
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(0, 242, 254, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(21, 34, 56, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(30, 47, 77, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+        }
+        @keyframes radar-sweep {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-radar {
+            animation: radar-sweep 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-brand-navy text-slate-100 font-sans antialiased selection:bg-brand-cyan selection:text-brand-navy">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-accent p-0.5 glow-cyan">
+                    <div class="w-full h-full bg-brand-navy rounded-[10px] flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-brand-cyan group-hover:scale-110 transition-transform"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl font-extrabold tracking-tight text-white">Aura<span class="text-brand-cyan">Seg</span></span>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 rounded-full">VI Región</span>
+                    </div>
+                    <span class="text-xs text-slate-400 block -mt-1">Televigilancia & Seguridad Inteligente</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#soluciones" class="hover:text-brand-cyan transition-colors">Soluciones</a>
+                <a href="#parcelas" class="hover:text-brand-cyan transition-colors">Parcelas & Quintas</a>
+                <a href="#demo" class="hover:text-brand-cyan transition-colors flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                    App Propia
+                </a>
+                <a href="#cotizador" class="hover:text-brand-cyan transition-colors">Cotizador Online</a>
+                <a href="#comparativa" class="hover:text-brand-cyan transition-colors">¿Por qué nosotros?</a>
+                <a href="#planes" class="hover:text-brand-cyan transition-colors">Planes</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3">
+                <a href="#cotizador" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-brand-cyan to-teal-400 text-brand-navy hover:opacity-95 transition glow-cyan">
+                    <i data-lucide="calculator" class="w-4 h-4"></i>
+                    <span>Cotizar en 1 min</span>
+                </a>
+                <a href="https://wa.me/56912345678?text=Hola,%20quisiera%20agendar%20una%20visita%20t%C3%A9cnica%20de%20seguridad%20en%20la%20VI%20Regi%C3%B3n" target="_blank" class="p-2.5 rounded-xl glass-card text-brand-accent hover:border-brand-accent transition">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid-pattern">
+        <!-- Background Lighting Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-brand-cyan/15 rounded-full blur-[130px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[400px] h-[300px] bg-brand-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column (Copywriting & Value Prop) -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-surface border border-brand-cyan/30 text-brand-cyan text-xs font-semibold">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-accent"></i>
+                        <span>Machalí • Rancagua • Requínoa • Rengo • San Fernando • Pichilemu</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+                        Tranquilidad real para tu hogar y parcela. <br/>
+                        <span class="bg-gradient-to-r from-brand-cyan via-teal-300 to-brand-accent bg-clip-text text-transparent">Sin contratos forzados.</span>
+                    </h1>
+
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Instalamos sistemas de <b>televigilancia con Inteligencia Artificial activa</b> que detectan intrusos reales y disuaden con luz y sonido antes de que toquen tu cerca. Control total en tu smartphone y soporte técnico garantizado en <b>menos de 24-48 horas</b>.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 max-w-xl mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-brand-surface/60 border border-slate-700/60 text-xs">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-accent shrink-0"></i>
+                            <span class="text-slate-200">Equipos 100% tuyos</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-brand-surface/60 border border-slate-700/60 text-xs">
+                            <i data-lucide="shield-alert" class="w-4 h-4 text-brand-cyan shrink-0"></i>
+                            <span class="text-slate-200">Cero falsas alarmas</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-brand-surface/60 border border-slate-700/60 text-xs col-span-2 sm:col-span-1">
+                            <i data-lucide="wifi" class="w-4 h-4 text-brand-amber shrink-0"></i>
+                            <span class="text-slate-200">Compatible Starlink/4G</span>
+                        </div>
+                    </div>
+
+                    <!-- Hero CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#cotizador" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-base bg-gradient-to-r from-brand-cyan to-teal-400 text-brand-navy hover:scale-[1.02] transition shadow-lg glow-cyan">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            <span>Diseñar mi Sistema a Medida</span>
+                        </a>
+                        <a href="#demo" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-base glass-card text-slate-200 hover:text-brand-cyan hover:border-brand-cyan/40 transition">
+                            <i data-lucide="smartphone" class="w-5 h-5 text-brand-cyan"></i>
+                            <span>Ver Demo de la App</span>
+                        </a>
+                    </div>
+
+                    <!-- Minería & Turnos El Teniente Note -->
+                    <div class="pt-2 text-xs text-slate-400 flex items-center justify-center lg:justify-start gap-2">
+                        <i data-lucide="hard-hat" class="w-4 h-4 text-brand-amber"></i>
+                        <span>Especialistas en hogares de <b>trabajadores mineros con turnos 7x7 y 4x3</b> en El Teniente.</span>
+                    </div>
+                </div>
+
+                <!-- Right Column (Radar & Interactive Visual Mockup) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-sm rounded-3xl p-4 bg-gradient-to-b from-slate-700/40 via-brand-surface to-brand-navy border border-slate-700 shadow-2xl">
+                        
+                        <!-- Simulated Camera Feed Window -->
+                        <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[4/3] flex flex-col justify-between p-4">
+                            <!-- Video Simulation Backdrop with Radar -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/20 to-slate-950"></div>
+                            
+                            <!-- Header overlay -->
+                            <div class="relative z-10 flex items-center justify-between">
+                                <div class="flex items-center gap-2 px-2.5 py-1 rounded-md bg-black/70 border border-emerald-500/30 text-[11px] font-mono text-emerald-400">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span>CAM 01 • PORTÓN PRINCIPAL</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-slate-400 px-2 py-0.5 bg-black/60 rounded">4K 60FPS</span>
+                            </div>
+
+                            <!-- Detection Box (AI Simulation) -->
+                            <div class="relative z-10 my-auto self-center w-48 h-28 border-2 border-brand-cyan/80 bg-brand-cyan/10 rounded-lg flex flex-col justify-between p-2 animate-pulse">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-bold font-mono bg-brand-cyan text-brand-navy px-1.5 py-0.5 rounded">PERSONA 98.4%</span>
+                                    <i data-lucide="user-check" class="w-4 h-4 text-brand-cyan"></i>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-[9px] font-mono text-brand-cyan">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-ping"></span>
+                                    <span>DISUASIÓN ACTIVA LISTA</span>
+                                </div>
+                            </div>
+
+                            <!-- Controls overlay -->
+                            <div class="relative z-10 flex items-center justify-between text-xs font-medium text-slate-300 bg-black/80 p-2 rounded-xl border border-slate-800">
+                                <div class="flex items-center gap-2 text-emerald-400">
+                                    <i data-lucide="shield" class="w-4 h-4"></i>
+                                    <span class="text-[11px]">Perímetro Asegurado</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button class="px-2 py-1 bg-brand-surfaceLight hover:bg-brand-cyan hover:text-brand-navy rounded text-[10px] transition">Foco</button>
+                                    <button class="px-2 py-1 bg-brand-surfaceLight hover:bg-brand-danger hover:text-white rounded text-[10px] transition">Sirena</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Status Micro Indicators -->
+                        <div class="mt-4 grid grid-cols-3 gap-2 text-center font-mono">
+                            <div class="p-2 rounded-xl bg-brand-navy border border-slate-800">
+                                <span class="text-[10px] text-slate-400 block">SOPORTE SLA</span>
+                                <span class="text-xs font-bold text-brand-cyan">&lt; 24 Hrs</span>
+                            </div>
+                            <div class="p-2 rounded-xl bg-brand-navy border border-slate-800">
+                                <span class="text-[10px] text-slate-400 block">ENLACE RURAL</span>
+                                <span class="text-xs font-bold text-brand-accent">99.8% Online</span>
+                            </div>
+                            <div class="p-2 rounded-xl bg-brand-navy border border-slate-800">
+                                <span class="text-[10px] text-slate-400 block">CONTRATOS</span>
+                                <span class="text-xs font-bold text-white">0 Amarras</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us vs Competition Section -->
+    <section id="comparativa" class="py-20 bg-brand-dark/70 border-t border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-3">La Diferencia Radical</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">
+                    ¿Por qué dejar de regalarle tu dinero a las multinacionales?
+                </p>
+                <p class="text-slate-400 mt-4 text-base">
+                    Comparamos con total transparencia nuestro modelo contra las empresas tradicionales de televisión y los instaladores informales.
+                </p>
+            </div>
+
+            <!-- Comparison Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Competitor 1: Multinacionales -->
+                <div class="p-6 rounded-2xl bg-brand-surface/40 border border-red-500/20 relative">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4">
+                        <i data-lucide="x-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Multinacionales (Verisure / ADT)</h3>
+                    <p class="text-xs text-red-400 mb-4 font-mono">Arriendos eternos y amarras legales</p>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+                            <span><b>$45.000 a $75.000/mes</b> para siempre. En 3 años pagas más de $2.000.000 sin ser dueño de nada.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+                            <span>Equipos en comodato: Si cancelas el servicio, te retiran todo.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+                            <span>Contratos con letra chica atados a 24 o 36 meses con multas de salida.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+                            <span>Soporte telefónico por call center centralizado en Santiago que tarda días en agendar técnico.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- OUR SOLUTION: AuraSeg (Highlighted) -->
+                <div class="p-8 rounded-3xl bg-gradient-to-b from-brand-surfaceLight to-brand-surface border-2 border-brand-cyan relative shadow-2xl glow-cyan scale-105 z-10">
+                    <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-gradient-to-r from-brand-cyan to-brand-accent text-brand-navy text-[11px] font-extrabold uppercase tracking-wider">
+                        Tu Mejor Elección
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center mb-4">
+                        <i data-lucide="shield-check" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white">AuraSeg VI Región</h3>
+                    <p class="text-xs text-brand-cyan mb-5 font-mono">Propiedad total + Soporte Hiperlocal</p>
+                    <ul class="space-y-3.5 text-xs text-slate-100">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                            <span><b>Los equipos son 100% tuyos</b> desde el primer día. Pagas una sola vez la instalación.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                            <span><b>Cero contratos forzados:</b> Suscripción voluntaria de soporte y salud técnica por solo $14.990/mes. Cancela cuando quieras.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                            <span><b>IA Real en el Silicio:</b> Diferencia personas y autos de animales o ramas. Cero alertas falsas a las 3:00 AM.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                            <span><b>Técnicos locales en Machalí/Rancagua:</b> Respuesta presencial garantizada en menos de 24-48 horas.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Competitor 3: Instaladores Informales -->
+                <div class="p-6 rounded-2xl bg-brand-surface/40 border border-slate-700/60 relative">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Instalador Informal</h3>
+                    <p class="text-xs text-amber-400 mb-4 font-mono">Bajo costo inicial, riesgo elevado</p>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                            <span>Cables de aluminio (CCA) económicos que se tuestan y sulfatan con el calor de la VI Región en menos de 1 año.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                            <span>Cero ciberseguridad: Dejan contraseñas genéricas (`admin/12345`) vulnerables a hackers.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                            <span>Nula garantía ni soporte postventa: Cobran y no vuelven a contestar el teléfono.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="x" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                            <span>Cableado visible y desprolijo que arruina la estética de tu fachada.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Specific Solutions for O'Higgins (Parcelas, Casas, etc) -->
+    <section id="soluciones" class="py-20 bg-brand-navy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-3">Diseñado para la Sexta Región</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Soluciones a la medida de tu tipo de propiedad
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Parcelas de Agrado -->
+                <div id="parcelas" class="p-8 rounded-3xl glass-panel hover:border-brand-cyan/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="trees" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Parcelas de Agrado (5.000 m²)</h3>
+                    <p class="text-xs text-brand-cyan font-mono mb-4">Requínoa • Machalí • Codegua • Olivar</p>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                        El mayor peligro en parcelas son los perímetros oscuros y los 50 minutos que tarda Carabineros. Instalamos antenas inalámbricas que llevan señal al portón sin cavar zanjas, cámaras PTZ con seguimiento automático y focos estroboscópicos.
+                    </p>
+                    <div class="space-y-2 text-xs text-slate-400 border-t border-slate-800 pt-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span>Enlaces inalámbricos Ubiquiti hasta 2 km</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span>Baterías de respaldo ante cortes de luz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Condominios & Machalí Urbano -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-brand-cyan/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-accent/10 text-brand-accent flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="home" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Casas & Condominios Cerrados</h3>
+                    <p class="text-xs text-brand-accent font-mono mb-4">El Polo • Nogales • San Damián • Manzanal</p>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                        Pensado para familias e ingenieros con turnos en Codelco El Teniente. Prevención de portonazos, videoporteros que puedes contestar desde tu celular aunque estés en faena y alarmas silenciosas con botón de pánico familiar.
+                    </p>
+                    <div class="space-y-2 text-xs text-slate-400 border-t border-slate-800 pt-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span>Videoportero IP conectado a tu smartphone</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span>Instalación invisible (cero canaletas feas)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Segunda Vivienda Costa -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-brand-cyan/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-amber/10 text-brand-amber flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="sun" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Segundas Residencias (Costa)</h3>
+                    <p class="text-xs text-brand-amber font-mono mb-4">Pichilemu • Punta de Lobos • Matanzas</p>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                        Cabañas desocupadas de lunes a viernes expuestas a robos de enseres o usurpaciones. Conectividad 4G/Starlink a prueba de tormentas con aviso instantáneo al celular y verificación visual en alta definición.
+                    </p>
+                    <div class="space-y-2 text-xs text-slate-400 border-t border-slate-800 pt-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span>Monitoreo de corte de energía y reconexión</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                            <span>Grabación segura en la nube (anti-robo del NVR)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive App Demo Simulator -->
+    <section id="demo" class="py-20 bg-brand-dark/90 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-semibold mb-3">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                    <span>Plataforma Exclusiva Propia</span>
+                </div>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Prueba la experiencia de nuestra aplicación
+                </p>
+                <p class="text-slate-400 mt-3 text-base">
+                    Sin anuncios, sin menús confusos. Todo el control de tu hogar al alcance de un toque.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-panel p-6 sm:p-10 rounded-3xl border border-slate-700">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    
+                    <!-- Interactive Smartphone Mockup -->
+                    <div class="w-full max-w-xs mx-auto rounded-[36px] p-3.5 bg-slate-900 border-4 border-slate-700 shadow-2xl">
+                        <!-- Screen Header -->
+                        <div class="w-full bg-brand-navy rounded-[28px] p-4 text-xs space-y-4">
+                            <div class="flex items-center justify-between text-slate-400 font-mono text-[11px] border-b border-slate-800 pb-2">
+                                <span>12:45</span>
+                                <div class="flex items-center gap-1.5 text-brand-accent">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                                    <span>CONECTADO</span>
+                                </div>
+                            </div>
+
+                            <!-- Live Feed Screen in Mockup -->
+                            <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 aspect-video flex items-center justify-center">
+                                <div id="demo-feed-status" class="text-center space-y-1">
+                                    <i data-lucide="video" class="w-8 h-8 text-brand-cyan mx-auto animate-pulse"></i>
+                                    <span class="text-[10px] text-slate-300 block font-mono">CAM 01: VIGILANCIA ACTIVA</span>
+                                </div>
+                                <div id="demo-alert-banner" class="hidden absolute inset-0 bg-red-950/80 flex flex-col items-center justify-center text-red-200 p-2 animate-pulse">
+                                    <i data-lucide="siren" class="w-8 h-8 text-red-400 mb-1"></i>
+                                    <span class="text-xs font-bold font-mono">¡DISUASIÓN ACTIVADA!</span>
+                                    <span class="text-[9px]">Luz estroboscópica y sirena encendida</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Buttons inside App -->
+                            <div class="space-y-2 pt-1">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Acciones Inmediatas</span>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button id="btn-trigger-siren" onclick="toggleDemoSiren()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-red-500/20 hover:border-red-500 border border-slate-700 text-left transition">
+                                        <i data-lucide="volume-2" class="w-4 h-4 text-red-400 mb-1"></i>
+                                        <span class="text-[10px] font-bold block text-white">Activar Sirena</span>
+                                        <span class="text-[8px] text-slate-400">Disuadir intruso</span>
+                                    </button>
+                                    <button id="btn-trigger-gate" onclick="toggleDemoGate()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-brand-cyan/20 hover:border-brand-cyan border border-slate-700 text-left transition">
+                                        <i data-lucide="door-closed" class="w-4 h-4 text-brand-cyan mb-1"></i>
+                                        <span class="text-[10px] font-bold block text-white" id="gate-status-text">Abrir Portón</span>
+                                        <span class="text-[8px] text-slate-400">Acceso parcela</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Recent Log in App -->
+                            <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-[9px] space-y-1 font-mono">
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Hoy 11:20 AM</span>
+                                    <span class="text-brand-accent">Humano detectado</span>
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Hoy 08:00 AM</span>
+                                    <span class="text-slate-400">Portón cerrado OK</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Simulator Controls & Explanation -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white">Diseñada para que cualquier integrante de tu familia la use sin enredos</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Nuestra plataforma se desarrolló pensando en la inmediatez. Sin publicidad invasiva ni servidores lentos alojados al otro lado del mundo. El video carga en **menos de 0.5 segundos** gracias a nuestra tecnología WebRTC nativa.
+                        </p>
+                        <div class="space-y-3 text-xs text-slate-300">
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-brand-surface border border-slate-800">
+                                <i data-lucide="bell-ring" class="w-5 h-5 text-brand-cyan shrink-0"></i>
+                                <span>Notificaciones push con foto instantánea de quien cruza el cerco.</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-brand-surface border border-slate-800">
+                                <i data-lucide="lock" class="w-5 h-5 text-brand-accent shrink-0"></i>
+                                <span>Encriptación de grado bancario: Sólo tú y tu familia tienen acceso al video.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quote Calculator (Cotizador Online) -->
+    <section id="cotizador" class="py-20 bg-brand-navy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-3">Transparencia Total</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Cotiza tu Proyecto en Tiempo Real
+                </p>
+                <p class="text-slate-400 mt-3 text-base">
+                    Selecciona los requerimientos de tu propiedad y obtén un estimado inmediato con opción de enviarlo a WhatsApp.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-brand-cyan/20 glow-cyan">
+                <div class="grid md:grid-cols-12 gap-8">
+                    
+                    <!-- Left: Parameters -->
+                    <div class="md:col-span-7 space-y-6">
+                        
+                        <!-- 1. Property Type -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Tipo de Propiedad en la Región</label>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <button type="button" onclick="setPropType('casa', 0)" class="prop-btn p-3 rounded-xl border border-brand-cyan bg-brand-cyan/15 text-white font-semibold text-left transition">
+                                    <i data-lucide="home" class="w-4 h-4 text-brand-cyan mb-1"></i>
+                                    <span>Casa / Condominio</span>
+                                </button>
+                                <button type="button" onclick="setPropType('parcela', 150000)" class="prop-btn p-3 rounded-xl border border-slate-700 bg-brand-surface text-slate-300 font-semibold text-left transition hover:border-slate-500">
+                                    <i data-lucide="trees" class="w-4 h-4 text-brand-accent mb-1"></i>
+                                    <span>Parcela (5.000m²)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Camera Count -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                2. Cantidad de Cámaras Inteligentes 4K con IA: <span id="camera-count-label" class="text-brand-cyan font-mono font-bold">4 Cámaras</span>
+                            </label>
+                            <input type="range" id="camera-slider" min="2" max="10" step="2" value="4" oninput="updateCalculator()" class="w-full accent-brand-cyan h-2 bg-slate-700 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-slate-400 font-mono mt-1">
+                                <span>2 Cámaras</span>
+                                <span>4 Cámaras</span>
+                                <span>6 Cámaras</span>
+                                <span>8 Cámaras</span>
+                                <span>10+ Cámaras</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. Addons Checkboxes -->
+                        <div class="space-y-3 pt-2">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">3. Adicionales Recomendados</label>
+                            
+                            <label class="flex items-center justify-between p-3 rounded-xl bg-brand-surface border border-slate-700/60 cursor-pointer hover:border-slate-500 text-xs">
+                                <div class="flex items-center gap-2.5">
+                                    <input type="checkbox" id="check-gate" onchange="updateCalculator()" class="w-4 h-4 accent-brand-cyan rounded">
+                                    <div>
+                                        <span class="font-bold text-white block">Enlace Inalámbrico a Portón</span>
+                                        <span class="text-[10px] text-slate-400">Antena Ubiquiti de largo alcance para abrir desde el celular</span>
+                                    </div>
+                                </div>
+                                <span class="font-mono text-brand-cyan font-bold">+$120.000</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl bg-brand-surface border border-slate-700/60 cursor-pointer hover:border-slate-500 text-xs">
+                                <div class="flex items-center gap-2.5">
+                                    <input type="checkbox" id="check-ups" onchange="updateCalculator()" class="w-4 h-4 accent-brand-cyan rounded">
+                                    <div>
+                                        <span class="font-bold text-white block">Respaldo Eléctrico (Batería UPS)</span>
+                                        <span class="text-[10px] text-slate-400">Mantiene las cámaras encendidas ante temporales y cortes de luz</span>
+                                    </div>
+                                </div>
+                                <span class="font-mono text-brand-cyan font-bold">+$85.000</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Right: Summary & WhatsApp Action -->
+                    <div class="md:col-span-5 flex flex-col justify-between p-6 rounded-2xl bg-brand-dark/80 border border-slate-700">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Inversión Estimada (Unico Pago)</span>
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span id="calc-total" class="text-4xl font-extrabold text-white font-mono">$650.000</span>
+                                <span class="text-xs text-slate-400">CLP + IVA</span>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-brand-surface border border-slate-800 text-xs space-y-2 mb-6">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Equipos & Grabador NVR:</span>
+                                    <span class="text-white font-bold">100% Propios</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Instalación & Cableado:</span>
+                                    <span class="text-white font-bold">Cobre Cat6 Certificado</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Garantía Escrita:</span>
+                                    <span class="text-brand-accent font-bold">1 Año Integral</span>
+                                </div>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 text-xs text-slate-200 mb-6">
+                                <span class="font-bold text-brand-cyan block mb-0.5">Soporte Opcional: $14.990/mes</span>
+                                <span>Monitoreo de salud técnica de cámaras y visita preventiva semestral. Cancela cuando quieras.</span>
+                            </div>
+                        </div>
+
+                        <a id="btn-quote-whatsapp" href="#" target="_blank" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-400 text-brand-navy hover:scale-[1.02] transition shadow-lg">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span>Pedir Visita Técnica con Esta Cotización</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Packages Section -->
+    <section id="planes" class="py-20 bg-brand-dark/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-3">Paquetes Populares</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Equipamiento Llave en Mano Instalado
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="p-8 rounded-3xl glass-panel border border-slate-800 hover:border-slate-600 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-bold text-white">Kit Urbano Hogar</h3>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300">Machalí / Rancagua</span>
+                        </div>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-white font-mono">$590.000</span>
+                            <span class="text-xs text-slate-400">CLP</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>4 Cámaras IP PoE 4K con IA AcuSense</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Grabador NVR 4K + Disco Duro 2TB WD Purple</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Cableado Cat6 100% cobre embutido</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>App móvil en todos los celulares del hogar</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#cotizador" class="w-full text-center py-3 rounded-xl font-bold text-xs bg-brand-surfaceLight hover:bg-slate-700 text-white transition">Seleccionar Kit</a>
+                </div>
+
+                <!-- Package 2: Most Popular -->
+                <div class="p-8 rounded-3xl glass-panel border-2 border-brand-cyan relative flex flex-col justify-between glow-cyan scale-105">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-brand-cyan text-brand-navy text-[10px] font-extrabold uppercase">
+                        Más Vendido en Parcelas
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-4 mt-2">
+                            <h3 class="text-lg font-bold text-white">Kit Parcela Alta Seguridad</h3>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-cyan/20 text-brand-cyan">5.000 m²</span>
+                        </div>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-white font-mono">$1.450.000</span>
+                            <span class="text-xs text-slate-400">CLP</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>6 Cámaras IP PoE con disuasión activa (Luz + Sirena)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>1 Cámara PTZ 360° con seguimiento de humanos</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Enlace inalámbrico Ubiquiti al portón de acceso</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Batería UPS de respaldo ante cortes de luz</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#cotizador" class="w-full text-center py-3 rounded-xl font-bold text-xs bg-gradient-to-r from-brand-cyan to-teal-400 text-brand-navy hover:opacity-95 transition">Seleccionar Kit Parcela</a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="p-8 rounded-3xl glass-panel border border-slate-800 hover:border-slate-600 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-bold text-white">Alarma Inalámbrica Ajax</h3>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300">Premium Europeo</span>
+                        </div>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-white font-mono">$750.000</span>
+                            <span class="text-xs text-slate-400">CLP</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Panel Central Hub 2 Plus con 4G y Wi-Fi</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>4 Sensores de movimiento con foto-verificación</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Sirena exterior StreetSiren de 113 dB</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i>
+                                <span>Baterías con duración certificada de 5 a 7 años</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#cotizador" class="w-full text-center py-3 rounded-xl font-bold text-xs bg-brand-surfaceLight hover:bg-slate-700 text-white transition">Seleccionar Kit Ajax</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Investors / Dossier Section -->
+    <section class="py-16 bg-brand-navy border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="p-8 rounded-3xl bg-gradient-to-r from-brand-surface to-brand-surfaceLight border border-brand-cyan/30 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold font-mono text-brand-cyan">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>DOCUMENTACIÓN CORPORATIVA & LEGAL</span>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-white">Dossier Ejecutivo y Estudio de Mercado VI Región</h4>
+                    <p class="text-xs text-slate-300 max-w-xl">
+                        Descarga el informe completo de mercado, especificaciones técnicas de la Opción 1 (WebRTC + ONVIF) y el modelo de contrato de sociedad SpA.
+                    </p>
+                </div>
+                <a href="Propuesta_Negocio_Seguridad_VI_Region.pdf" download class="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs bg-brand-cyan text-brand-navy hover:bg-teal-300 transition glow-cyan">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Descargar Dossier (PDF)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-900 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <i data-lucide="shield-check" class="w-5 h-5 text-brand-cyan"></i>
+                <span class="font-bold text-white">AuraSeg • VI Región del Libertador Bernardo O'Higgins</span>
+            </div>
+            <div class="text-center sm:text-right">
+                <p>Machalí • Rancagua • Requínoa • Rengo • San Fernando • Pichilemu</p>
+                <p class="text-[10px] text-slate-500 mt-1">© 2026 AuraSeg. Todos los derechos reservados. Desarrollado sobre subdominio bastiascid.cl</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        lucide.createIcons();
+
+        // Calculator State
+        let selectedPropCost = 0;
+        let selectedPropName = 'Casa / Condominio';
+
+        function setPropType(type, cost) {
+            selectedPropCost = cost;
+            selectedPropName = (type === 'casa') ? 'Casa / Condominio' : 'Parcela (5.000m²)';
+            
+            document.querySelectorAll('.prop-btn').forEach(btn => {
+                btn.classList.remove('border-brand-cyan', 'bg-brand-cyan/15', 'text-white');
+                btn.classList.add('border-slate-700', 'bg-brand-surface', 'text-slate-300');
+            });
+            event.currentTarget.classList.remove('border-slate-700', 'bg-brand-surface', 'text-slate-300');
+            event.currentTarget.classList.add('border-brand-cyan', 'bg-brand-cyan/15', 'text-white');
+            
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const cameras = parseInt(document.getElementById('camera-slider').value);
+            document.getElementById('camera-count-label').innerText = `${cameras} Cámaras`;
+
+            const baseCameraCost = 350000;
+            const extraPerTwoCameras = 100000;
+            const cameraTotal = baseCameraCost + ((cameras - 2) / 2) * extraPerTwoCameras;
+
+            const gateCost = document.getElementById('check-gate').checked ? 120000 : 0;
+            const upsCost = document.getElementById('check-ups').checked ? 85000 : 0;
+
+            const total = cameraTotal + selectedPropCost + gateCost + upsCost;
+            document.getElementById('calc-total').innerText = '$' + total.toLocaleString('es-CL');
+
+            // Format WhatsApp Message
+            const msg = `Hola AuraSeg! Estuve en su sitio web y coticé un sistema para mi propiedad:%0A` +
+                        `• Tipo: ${selectedPropName}%0A` +
+                        `• Cámaras: ${cameras} con IA%0A` +
+                        `• Enlace Portón: ${document.getElementById('check-gate').checked ? 'Sí' : 'No'}%0A` +
+                        `• Respaldo Batería: ${document.getElementById('check-ups').checked ? 'Sí' : 'No'}%0A` +
+                        `• Estimado: $${total.toLocaleString('es-CL')} CLP%0A%0A` +
+                        `Me gustaría coordinar una visita técnica en terreno en la VI Región.`;
+            
+            document.getElementById('btn-quote-whatsapp').href = `https://wa.me/56912345678?text=${msg}`;
+        }
+
+        // Demo Simulator Controls
+        let sirenActive = false;
+        function toggleDemoSiren() {
+            sirenActive = !sirenActive;
+            const banner = document.getElementById('demo-alert-banner');
+            if (sirenActive) {
+                banner.classList.remove('hidden');
+            } else {
+                banner.classList.add('hidden');
+            }
+        }
+
+        let gateOpen = false;
+        function toggleDemoGate() {
+            gateOpen = !gateOpen;
+            const text = document.getElementById('gate-status-text');
+            text.innerText = gateOpen ? 'Cerrar Portón' : 'Abrir Portón';
+        }
+
+        // Initialize calculator on load
+        updateCalculator();
+    </script>
+</body>
+</html>
